@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio de Mahamane Lamine ABDOU MALAM LAOUALI - Développeur Full Stack - Flutter, Laravel, NestJS, React - Niger"/>
+  <meta name="keywords" content="développeur, full stack, Flutter, Laravel, NestJS, React, Niger, portfolio"/>
+  <meta name="author" content="Mahamane Lamine ABDOU MALAM LAOUALI"/>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio | Mahamane Lamine ABDOU MALAM LAOUALI - Développeur Full Stack" />
+  <meta property="og:description" content="Développeur Full Stack spécialisé en Flutter, Laravel, NestJS et React" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Portfolio | Mahamane Lamine ABDOU MALAM LAOUALI - Développeur Full Stack" />
+  <meta property="twitter:description" content="Développeur Full Stack spécialisé en Flutter, Laravel, NestJS et React" />
+  
+  <title>Portfolio | Mahamane Lamine ABDOU MALAM LAOUALI - Développeur Full Stack</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --primary: #f97316;     /* Orange */
+      --secondary: #10b981;   /* Vert */
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Header & Nav */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    header.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      font-size: 1.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--dark);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 150px 1rem 100px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff8f0 0%, #f0fdf4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(249, 115, 22, 0.1);
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1);
+      bottom: -50px;
+      left: -50px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(249, 115, 22, 0.2);
+      z-index: -1;
+      transform: skewX(-15deg);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 0.5rem;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: #ea580c;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      display: block;
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img {
+      text-align: center;
+      position: relative;
+    }
+
+    .about-img::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 8px solid var(--primary);
+      border-radius: 50%;
+      top: 20px;
+      left: 20px;
+      z-index: -1;
+    }
+
+    .about-img img {
+      width: 100%;
+      max-width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .about-content p {
+      margin-bottom: 1rem;
+      color: var(--gray);
+    }
+
+    .about-content strong {
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: var(--transition);
+      border-top: 4px solid transparent;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-top-color: var(--primary);
+    }
+
+    .skill-card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--gray);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .project-img {
+      height: 200px;
+      background: linear-gradient(135deg, #f97316, #10b981);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-img::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .project-tech {
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-screenshots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-screenshot {
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .project-screenshot:hover {
+      transform: scale(1.05);
+    }
+
+    .project-screenshot img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      color: var(--secondary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .contact-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .contact-item i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-item h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-item p {
+      color: var(--gray);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: #ea580c;
+      transform: translateY(-3px);
+    }
+
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(249, 115, 22, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-grid {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .hero {
+        padding: 120px 1rem 80px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-img::before {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .project-screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .btn {
+        display: block;
+        margin: 0.5rem auto;
+        width: 80%;
+        max-width: 250px;
+      }
+      
+      .project-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .project-screenshots {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <nav>
+      <div class="logo">
+        <i class="fas fa-code"></i>
+        <span>Portfolio</span>
+      </div>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Mahamane Lamine <span class="highlight">ABDOU MALAM LAOUALI</span></h1>
+        <p class="subtitle">Développeur <span class="highlight">Full Stack</span> | Flutter • Laravel • NestJS • Angular</p>
+        <p style="margin-bottom: 2rem; color: var(--gray);">Je transforme vos idées en applications robustes, sécurisées et scalables</p>
+        <div>
+          <a href="#contact" class="btn">Me Contacter</a>
+          <a href="#projets" class="btn btn-secondary">Voir mes Projets</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="apropos">
+    <div class="container">
+      <h2 class="section-title">À Propos</h2>
+      <div class="about-grid">
+        <div class="about-img">
+          <!-- Remplacez cette image par votre photo -->
+          <img src="assets/profile.jpeg" alt="Photo de Mahamane Lamine ABDOU MALAM LAOUALI" loading="lazy">
+        </div>
+        <div class="about-content">
+          <h3>Développeur passionné basé au Niger</h3>
+          <p>Spécialisé dans le développement mobile (Flutter) et web (Laravel, React, NestJS). J'aide les startups et entreprises à transformer leurs idées en applications robustes, sécurisées et scalables.</p>
+          <p>Expérience en e-commerce, paiements mobiles, gestion RH, éducation et ERP universitaire.</p>
+          <p><strong>Disponible immédiatement</strong> – Freelance ou CDI</p>
+          <a href="#contact" class="btn" style="margin-top: 1rem;">Travaillons ensemble</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="competences" style="background: #f8fafc;">
+    <div class="container">
+      <h2 class="section-title">Compétences</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h4>Flutter & Dart</h4>
+          <p>Apps Android/iOS multiplateforme avec UI fluide et expérience utilisateur optimale</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-server"></i>
+          <h4>Laravel & NestJS & Angular</h4>
+          <p>API REST sécurisées, frontend et backend scalable</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i>
+          <h4>MySQL & PostgreSQL</h4>
+          <p>Modélisation de données, optimisation et migration.</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Sécurité</h4>
+          <p>JWT, Authentification Multi-Facteurs, chiffrement AES-256, bonnes pratiques OWASP</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projets">
+    <div class="container">
+      <h2 class="section-title">Quelques Projets Réalisés</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-img">
+              <h5>Energy Plus App</h5>
+            <!-- <img src="https://via.placeholder.com/300x200?text=Energy+Plus+App" alt="Energy Plus App Screenshot"> -->
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Energy Plus App</h3>
+            <p class="project-tech">Flutter • Dart • UI/UX</p>
+            <p class="project-desc">Application mobile multilingue de gestion énergétique avec tableau de bord interactif et rapports personnalisés.</p>
+            
+            <div class="project-screenshots">
+              <div class="project-screenshot">
+                <img src="assets/dash-fuel.png" alt="Screen 1">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/historique.png" alt="Screen 2">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/carte.png" alt="Screen 3">
+              </div>
+               <div class="project-screenshot">
+                <img src="assets/transaction.png" alt="Screen 4">
+              </div>
+               <div class="project-screenshot">
+                <img src="assets/profil.png" alt="Screen 5">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <h5>Gestion Interne</h5>
+            <!-- <img src="" alt="Gestion Interne Screenshot"> -->
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Gestion Interne d'Entreprise</h3>
+            <p class="project-tech">Laravel • Blade • MySQL</p>
+            <p class="project-desc">Application web modulaire intégrant la gestion des visiteurs, des ressources humaines et de la paie, du stock, du suivi commercial (prospects et contrats), ainsi que des activités et campagnes marketing, avec un tableau de bord analytique.</p>
+            
+            <div class="project-screenshots">
+              <div class="project-screenshot">
+                <img src="assets/dashboard.png" alt="Dashboard">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/rh.png" alt="RH Module">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/planning.png" alt="Stock">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <h5>E-commerce Multi-Vendeur</h5>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">E-commerce Multi-Vendeur</h3>
+            <p class="project-tech">Laravel • Flutter • HTML+Bootstrap</p>
+            <p class="project-desc">Plateforme multi‑vendeur avec profils acheteurs et vendeurs, gestion des produits, promotions, OTP SMS, et calcul automatique des frais de livraison.</p>
+             <div class="project-screenshots">
+              <div class="project-screenshot">
+                <img src="assets/dash.png" alt="App Mobile">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/products.png" alt="Interface Web">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/details-product.png" alt="Rapports">
+              </div>
+              <div class="project-screenshot">
+                <img src="assets/auth.png" alt="Rapports">
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://b-kassoua.com/"><i class="fas fa-external-link-alt"></i> Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="background: #f0fdf4;">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <h4>Email</h4>
+          <p>mahamanelmn8@gmail.com</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <h4>Téléphone</h4>
+          <p>+227 89 66 70 00</p>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <h4>LinkedIn</h4>
+          <p>linkedin.com/in/mahamane-lamine-abdou-malam-laouali-963537169</p>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <h4>GitHub</h4>
+          <p>github.com/l4m1n3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="copyright">&copy; 2025 Mahamane Lamine ABDOU MALAM LAOUALI. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Loading screen
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+      }, 1000);
+    });
+
+    // Menu mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenu.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Active navigation link
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Screenshot modal functionality
+    document.querySelectorAll('.project-screenshot').forEach(screenshot => {
+      screenshot.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').src;
+        // Create modal for larger view
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.zIndex = '10000';
+        modal.style.cursor = 'pointer';
+        
+        const modalImg = document.createElement('img');
+        modalImg.src = imgSrc;
+        modalImg.style.maxWidth = '90%';
+        modalImg.style.maxHeight = '90%';
+        modalImg.style.borderRadius = '8px';
+        
+        modal.appendChild(modalImg);
+        document.body.appendChild(modal);
+        
+        modal.addEventListener('click', function() {
+          document.body.removeChild(modal);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
