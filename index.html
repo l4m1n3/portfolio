@@ -658,6 +658,81 @@ section { padding: 8rem 4rem; }
   border: 1px solid var(--border);
 }
 
+/* ===== PROJECT GALLERY ===== */
+.project-gallery {
+  display: flex; gap: 0.9rem;
+  padding: 1.4rem 2.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  background: var(--paper-dark);
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+.project-gallery::-webkit-scrollbar { height: 4px; }
+.project-gallery::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+.shot {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 0; border: 1px solid var(--border);
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.shot img { height: 100%; width: auto; object-fit: cover; }
+.shot-m { height: 300px; border-radius: 14px; }
+.shot-d { height: 190px; border-radius: 4px; }
+.shot:hover, .shot:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(13,13,13,0.12);
+  outline: none;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(13,13,13,0.92);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9000;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox img {
+  max-width: 88vw; max-height: 86vh;
+  width: auto; height: auto;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-caption {
+  position: absolute; bottom: 1.5rem; left: 0; right: 0;
+  text-align: center;
+  color: rgba(245,240,232,0.75);
+  font-size: 0.85rem;
+}
+.lb-btn {
+  position: absolute;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,240,232,0.25);
+  background: rgba(245,240,232,0.08);
+  color: var(--paper);
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lb-btn:hover { background: var(--accent); }
+.lb-close { top: 1.5rem; right: 1.5rem; }
+.lb-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+@media (max-width: 768px) {
+  .project-gallery { padding: 1.2rem 1.5rem; }
+  .shot-m { height: 240px; }
+  .shot-d { height: 150px; }
+  .lb-prev { left: 0.5rem; } .lb-next { right: 0.5rem; }
+}
+
 /* ===== CONTACT ===== */
 #contact {
   background: var(--accent);
@@ -1058,6 +1133,13 @@ footer {
         <span class="project-type">Application Mobile</span>
         <h3 class="project-name">Energy Plus App</h3>
       </div>
+      <div class="project-gallery" aria-label="Captures d'écran — Energy Plus App">
+        <button class="shot shot-m" type="button" data-full="assets/webp/dash-fuel.webp" aria-label="Agrandir : Tableau de bord : solde et services rapides"><img src="assets/webp/dash-fuel.webp" alt="Energy Plus App — Tableau de bord : solde et services rapides" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/historique.webp" aria-label="Agrandir : Historique des pleins"><img src="assets/webp/historique.webp" alt="Energy Plus App — Historique des pleins" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/transaction.webp" aria-label="Agrandir : Détails d'une transaction"><img src="assets/webp/transaction.webp" alt="Energy Plus App — Détails d'une transaction" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/carte.webp" aria-label="Agrandir : Ajout d'une carte"><img src="assets/webp/carte.webp" alt="Energy Plus App — Ajout d'une carte" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/profil.webp" aria-label="Agrandir : Profil utilisateur et cartes"><img src="assets/webp/profil.webp" alt="Energy Plus App — Profil utilisateur et cartes" loading="lazy" decoding="async"></button>
+      </div>
       <div class="project-body">
         <div class="project-tech">Flutter · Dart · UI/UX</div>
         <p class="project-desc">Application mobile multilingue de gestion énergétique avec tableau de bord interactif, historique des transactions, cartographie et rapports personnalisés.</p>
@@ -1075,6 +1157,11 @@ footer {
         <span class="project-num">02</span>
         <span class="project-type">Application Web · ERP</span>
         <h3 class="project-name">Gestion Interne d'Entreprise</h3>
+      </div>
+      <div class="project-gallery" aria-label="Captures d'écran — Gestion Interne d'Entreprise">
+        <button class="shot shot-d" type="button" data-full="assets/webp/dashboard.webp" aria-label="Agrandir : Tableau de bord"><img src="assets/webp/dashboard.webp" alt="Gestion Interne d'Entreprise — Tableau de bord" loading="lazy" decoding="async"></button>
+        <button class="shot shot-d" type="button" data-full="assets/webp/rh.webp" aria-label="Agrandir : Module RH : gestion des employés"><img src="assets/webp/rh.webp" alt="Gestion Interne d'Entreprise — Module RH : gestion des employés" loading="lazy" decoding="async"></button>
+        <button class="shot shot-d" type="button" data-full="assets/webp/planning.webp" aria-label="Agrandir : Planning mensuel"><img src="assets/webp/planning.webp" alt="Gestion Interne d'Entreprise — Planning mensuel" loading="lazy" decoding="async"></button>
       </div>
       <div class="project-body">
         <div class="project-tech">Laravel · Blade · MySQL</div>
@@ -1095,6 +1182,12 @@ footer {
         <span class="project-type">Plateforme Web</span>
         <h3 class="project-name">E-commerce Multi-Vendeur</h3>
       </div>
+      <div class="project-gallery" aria-label="Captures d'écran — E-commerce Multi-Vendeur">
+        <button class="shot shot-d" type="button" data-full="assets/webp/dash.webp" aria-label="Agrandir : Page d'accueil et meilleures ventes"><img src="assets/webp/dash.webp" alt="E-commerce Multi-Vendeur — Page d'accueil et meilleures ventes" loading="lazy" decoding="async"></button>
+        <button class="shot shot-d" type="button" data-full="assets/webp/products.webp" aria-label="Agrandir : Catalogue de produits"><img src="assets/webp/products.webp" alt="E-commerce Multi-Vendeur — Catalogue de produits" loading="lazy" decoding="async"></button>
+        <button class="shot shot-d" type="button" data-full="assets/webp/details-product.webp" aria-label="Agrandir : Fiche produit"><img src="assets/webp/details-product.webp" alt="E-commerce Multi-Vendeur — Fiche produit" loading="lazy" decoding="async"></button>
+        <button class="shot shot-d" type="button" data-full="assets/webp/auth.webp" aria-label="Agrandir : Page de connexion"><img src="assets/webp/auth.webp" alt="E-commerce Multi-Vendeur — Page de connexion" loading="lazy" decoding="async"></button>
+      </div>
       <div class="project-body">
         <div class="project-tech">Laravel · Bootstrap · JS</div>
         <p class="project-desc">Plateforme multi-vendeur avec profils acheteurs/vendeurs, gestion des produits, promotions, OTP SMS et calcul automatique des frais de livraison.</p>
@@ -1114,6 +1207,14 @@ footer {
         <span class="project-num">04</span>
         <span class="project-type">App Mobile · E-commerce</span>
         <h3 class="project-name">B-kassoua App Mobile</h3>
+      </div>
+      <div class="project-gallery" aria-label="Captures d'écran — B-kassoua App Mobile">
+        <button class="shot shot-m" type="button" data-full="assets/webp/dash-app.webp" aria-label="Agrandir : Accueil : promotions et produits populaires"><img src="assets/webp/dash-app.webp" alt="B-kassoua App Mobile — Accueil : promotions et produits populaires" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/categorie-app.webp" aria-label="Agrandir : Catégories"><img src="assets/webp/categorie-app.webp" alt="B-kassoua App Mobile — Catégories" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/login-app.webp" aria-label="Agrandir : Connexion (Google et Apple)"><img src="assets/webp/login-app.webp" alt="B-kassoua App Mobile — Connexion (Google et Apple)" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/historique-app.webp" aria-label="Agrandir : Historique des commandes"><img src="assets/webp/historique-app.webp" alt="B-kassoua App Mobile — Historique des commandes" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/mes-produit-app.webp" aria-label="Agrandir : Espace vendeur : mes produits"><img src="assets/webp/mes-produit-app.webp" alt="B-kassoua App Mobile — Espace vendeur : mes produits" loading="lazy" decoding="async"></button>
+        <button class="shot shot-m" type="button" data-full="assets/webp/parametre-app.webp" aria-label="Agrandir : Paramètres"><img src="assets/webp/parametre-app.webp" alt="B-kassoua App Mobile — Paramètres" loading="lazy" decoding="async"></button>
       </div>
       <div class="project-body">
         <div class="project-tech">Flutter · Laravel</div>
@@ -1171,6 +1272,15 @@ footer {
     </a>
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Capture d'écran agrandie">
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Fermer"><i class="fas fa-times"></i></button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Précédente"><i class="fas fa-chevron-left"></i></button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Suivante"><i class="fas fa-chevron-right"></i></button>
+  <p class="lightbox-caption" id="lbCaption"></p>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1275,6 +1385,44 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 document.querySelectorAll('.skill-card').forEach(el => revealObs.observe(el));
+// ===== LIGHTBOX =====
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+let lbList = [], lbIndex = 0, lbOpener = null;
+function lbShow(i) {
+  lbIndex = (i + lbList.length) % lbList.length;
+  const btn = lbList[lbIndex];
+  const alt = btn.querySelector('img').alt;
+  lbImg.src = btn.dataset.full;
+  lbImg.alt = alt;
+  lbCaption.textContent = alt + '  ·  ' + (lbIndex + 1) + ' / ' + lbList.length;
+}
+document.querySelectorAll('.project-gallery').forEach(gal => {
+  const shots = [...gal.querySelectorAll('.shot')];
+  shots.forEach((btn, i) => btn.addEventListener('click', () => {
+    lbList = shots; lbOpener = btn;
+    lbShow(i);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  }));
+});
+function lbClose() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lbOpener) lbOpener.focus();
+}
+document.getElementById('lbClose').addEventListener('click', lbClose);
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); lbShow(lbIndex - 1); });
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); lbShow(lbIndex + 1); });
+lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') lbClose();
+  if (e.key === 'ArrowLeft') lbShow(lbIndex - 1);
+  if (e.key === 'ArrowRight') lbShow(lbIndex + 1);
+});
 </script>
 </body>
 </html>
